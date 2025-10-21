@@ -1,0 +1,6 @@
+portafolio-frontend/node_modules
+portafolio-frontend/.next/cache
+.git
+.gitignore
+Dockerfile
+npm-debug.log
