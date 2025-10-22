@@ -1,0 +1,18 @@
+services:
+  frontend:
+    container_name: portfolio-frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend/portafolio-frontend:/app
+      - /app/node_modules
+      - /app/.next
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
+      - NEXT_TELEMETRY_DISABLED=1
+    command: npm run dev

@@ -1,103 +1,116 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { motion } from "framer-motion";
+import { Github, Linkedin, Mail } from "lucide-react";
+import Link from "next/link";
+
+export default function HomePage() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
+    <main className="min-h-screen flex flex-col justify-between bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-50 transition-colors">
+      {/* HERO SECTION */}
+      <section className="flex flex-col items-center justify-center text-center py-24 px-6 space-y-6">
+        <motion.img
+          src="/images/profile-placeholder.jpg"
+          alt="Raúl Argott"
+          className="w-32 h-32 rounded-full border border-slate-300 shadow-md"
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
         />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
+        <motion.h1
+          className="text-4xl md:text-5xl font-extrabold tracking-tight"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+        >
+          Raúl Argott
+        </motion.h1>
+
+        <p className="text-lg text-slate-600 dark:text-slate-400">
+          Tech Lead • Lead Developer • .NET & Azure Enthusiast
+        </p>
+
+        <div className="flex flex-wrap justify-center gap-3 mt-6">
+          <Link href="/profile/hr">
+            <Button size="lg" className="font-medium">
+              Profile for HR & Recruiters
+            </Button>
+          </Link>
+          <Link href="/profile/tech">
+            <Button size="lg" variant="outline">
+              Profile for Engineers & CTOs
+            </Button>
+          </Link>
+        </div>
+
+        {/* Social Links */}
+        <div className="flex gap-4 mt-8">
+          <a href="mailto:raulargott@hotmail.com" target="_blank" rel="noopener noreferrer">
+            <Mail className="w-5 h-5 hover:text-blue-500" />
           </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
+          <a href="https://linkedin.com/in/raulargott" target="_blank" rel="noopener noreferrer">
+            <Linkedin className="w-5 h-5 hover:text-blue-500" />
+          </a>
+          <a href="https://github.com/raulargott" target="_blank" rel="noopener noreferrer">
+            <Github className="w-5 h-5 hover:text-blue-500" />
           </a>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </section>
+
+      {/* ABOUT SECTION */}
+      <section className="max-w-4xl mx-auto px-6 py-10">
+        <h2 className="text-2xl font-semibold mb-4">About Me</h2>
+        <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
+          I’m a tech lead and software architect focused on designing and building cloud-native systems with
+          <span className="font-semibold"> .NET</span>,{" "}
+          <span className="font-semibold">Azure</span>, and modern DevOps practices.  
+          I’m passionate about helping teams deliver cleaner, faster, and more reliable code through good architecture, CI/CD, and strong communication.
+        </p>
+      </section>
+
+      {/* FEATURED PROJECTS / DEMOS */}
+      <section className="max-w-5xl mx-auto px-6 py-12">
+        <h2 className="text-2xl font-semibold mb-6 text-center">Featured Demos & Projects</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <Card className="hover:shadow-md transition">
+            <CardContent className="p-6">
+              <h3 className="font-semibold mb-2">Real-time Visitor Counter</h3>
+              <p className="text-sm text-slate-500 mb-4">SignalR + Redis example showing live users online.</p>
+              <Link href="/demos/visitors">
+                <Button size="sm" variant="secondary">View Demo</Button>
+              </Link>
+            </CardContent>
+          </Card>
+
+          <Card className="hover:shadow-md transition">
+            <CardContent className="p-6">
+              <h3 className="font-semibold mb-2">Observability Dashboard</h3>
+              <p className="text-sm text-slate-500 mb-4">Live architecture diagram & metrics (OpenTelemetry + Grafana).</p>
+              <Link href="/observability">
+                <Button size="sm" variant="secondary">View Metrics</Button>
+              </Link>
+            </CardContent>
+          </Card>
+
+          <Card className="hover:shadow-md transition">
+            <CardContent className="p-6">
+              <h3 className="font-semibold mb-2">Pub/Sub Events Stream</h3>
+              <p className="text-sm text-slate-500 mb-4">NATS + Redis event messaging visualized in real time.</p>
+              <Link href="/demos/pubsub">
+                <Button size="sm" variant="secondary">View Demo</Button>
+              </Link>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="py-6 text-center text-sm text-slate-500 border-t border-slate-200 dark:border-slate-800">
+        © {new Date().getFullYear()} Raúl Argott — Built with Next.js, .NET, and Azure
       </footer>
-    </div>
+    </main>
   );
 }

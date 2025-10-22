@@ -1,5 +1,6 @@
 portafolio-frontend/node_modules
 portafolio-frontend/.next/cache
+portafolio-frontend/.next
 .git
 .gitignore
 Dockerfile

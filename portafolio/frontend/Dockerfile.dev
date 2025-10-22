@@ -1,0 +1,22 @@
+# --- Base stage ---
+FROM node:20-alpine AS base
+WORKDIR /app
+COPY portafolio-frontend/package*.json ./
+
+# Install dependencies separately for caching
+RUN npm install
+
+# Copy all files
+COPY portafolio-frontend .
+
+# Default environment variable
+ENV PORT=3000
+EXPOSE 3000
+
+
+# Enable polling mode for file changes
+ENV CHOKIDAR_USEPOLLING=true
+ENV WATCHPACK_POLLING=true
+
+# Development mode (hot reload)
+CMD ["npm", "run", "dev"]
