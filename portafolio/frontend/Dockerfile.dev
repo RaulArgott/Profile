@@ -9,14 +9,14 @@ RUN npm install
 # Copy all files
 COPY portafolio-frontend .
 
-# Default environment variable
+# Environment
 ENV PORT=3000
-EXPOSE 3000
-
-
-# Enable polling mode for file changes
 ENV CHOKIDAR_USEPOLLING=true
+ENV CHOKIDAR_INTERVAL=1000
 ENV WATCHPACK_POLLING=true
+ENV NEXT_TELEMETRY_DISABLED=1
+
+EXPOSE 3000
 
 # Development mode (hot reload)
 CMD ["npm", "run", "dev"]
